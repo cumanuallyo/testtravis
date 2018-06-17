@@ -1,0 +1,14 @@
+sudo: required
+
+language: python
+python:
+  - "3.6"
+# command to install dependencies
+install:
+  - pip install .
+  - pip install -r requirements.txt
+# command to run tests
+script: 
+  - time; timeout 3m locust -f locustfile.py --no-web -c 100 -r 10 --csv=hello --logfile=hello.log; time
+  - cat hello
+  - cat hello.log
