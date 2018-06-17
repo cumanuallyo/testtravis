@@ -3,7 +3,7 @@ from locust import HttpLocust, TaskSet, task
 class UserBehavior(TaskSet):
     @task
     def index1(self):
-        self.client.get("https://google.com/",name="https://google.com/")
+        self.client.get(os.environ['E_URI'],name=os.environ['E_URI2'])
 
 class WebsiteUser(HttpLocust):
     task_set = UserBehavior
