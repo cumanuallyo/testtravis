@@ -1,4 +1,5 @@
 from locust import HttpLocust, TaskSet, task
+import os
 
 class UserBehavior(TaskSet):
     @task
