@@ -5,11 +5,9 @@ python:
   - "3.6"
 # command to install dependencies
 install:
-  - sudo apt install zsh
   - pip install -r requirements.txt
-  - zsh
 # command to run tests
 script: 
-  - time; timeout 3m locust -f locustfile.py --no-web -c 100 -r 10 --csv=hello --logfile=hello.log; time
+  - locust -f locustfile.py --no-web -c 100 -r 10 --csv=hello --logfile=hello.log & sleep 100 ; kill $!
   - cat hello
   - cat hello.log
