@@ -8,7 +8,7 @@ install:
   - pip install -r requirements.txt
 # command to run tests
 script: 
-  - locust -f locustfile.py --no-web -c 100 -r 10 --csv=hello --logfile=hello.log & sleep 100 ; kill $!
+  - timeout 30s locust -f locustfile.py --no-web -c 100 -r 10 --csv=hello --logfile=hello.log
   - cat hello_distribution.csv
   - cat hello_requests.csv
   - cat hello.log
